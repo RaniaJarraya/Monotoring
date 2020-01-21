@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-row>
+    <ion-col size="12" size-sm="10" offset-sm="1" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="4"
+    offset-xl="4">
+    <ion-title>Home
+     
+    </ion-title>
+      
+    </ion-col>
+    <ion-col size="12" size-sm="10" offset-sm="1" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="4"
+    offset-xl="4">
+    <ion-button color="dark" style="margin-left:90%;" (click)="logout()" ><ion-icon name="log-out"></ion-icon></ion-button>  
+  </ion-col>
+    </ion-row>
+    </ion-toolbar>
+    
+    
+  </ion-header>
+
+<ion-content>
+
+  <ion-row style="background: #373B44;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  ;height: 120%;" >
+    <ion-col size="12" size-sm="10" offset-sm="1" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="4"
+      offset-xl="4">
+    <ion-card style="background-color: rgb(105, 129, 151);margin-top: 10%;">
+       <ion-card-content>
+ 
+        <div class="profile-picture big-profile-picture">
+                
+                  <img  [src]="transform()"   >
+                 
+            </div>
+      
+      <br>
+      <br>
+      <div style="font-weight: bold; color:floralwhite; padding-left: 30%;" class="profile-info">FirstName :{{this.firstName}}</div>    
+      <br>
+      <div style="font-weight: bold;color:floralwhite; padding-left: 30%;" class="profile-info">LastName :{{this.lastName}}</div>   
+      <br> 
+      <div style="font-weight: bold;color:floralwhite; padding-left: 30%;" class="profile-info">email :{{this.email}}</div>    
+       
+        
+        </ion-card-content>
+        <br ><br ><br ><br ><br ><br ><br ><br ><br ><br >
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+

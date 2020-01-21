@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>device</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  >
+  <ion-row style="background: #373B44;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to top, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            ;height: 300%;"> 
+                    <ion-col  size-sm="10" offset-sm="1" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="4"
+                      offset-xl="4">
+
+      <ion-card>
+        <ion-item (click)="addDevice()">
+          Add New DEVICE  
+       </ion-item>
+       <ion-item (click)="updateDevice()">
+           Update  DEVICE  
+       </ion-item>
+       <ion-item (click)="deleteDevice()">
+           Delete  DEVICE  
+       </ion-item>
+       <ion-item (click)="getDevices()">
+         Get All DEVICES
+     </ion-item>
+
+      </ion-card>
+
+      <ion-card>
+        <ion-card-content>
+            <div *ngIf="this.open1==1"> 
+                <ion-item lines="none">
+                    <ion-label position="stacked">DevEUI</ion-label>
+                    <ion-input type="text" placeholder="DevEUI" name="DevEUI" [(ngModel)]="data.DevEUI"></ion-input>
+                  </ion-item>
+                  <ion-item lines="none">
+                      <ion-label position="stacked">GPS_Longitude</ion-label>
+                      <ion-input type="number" placeholder="GPS_Longitude" name="GPS_Longitude" [(ngModel)]="data.GPS_Longitude"></ion-input>
+                    </ion-item>
+         
+                  <ion-item lines="none">
+                    <ion-label position="stacked">GPS_Laltitude</ion-label>
+                    <ion-input type="number" placeholder="GPS_Laltitude" name="GPS_Laltitude" [(ngModel)]="data.GPS_Laltitude"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label>Performance</ion-label>
+                    <ion-select placeholder="Select One" [(ngModel)]="data.performance">
+                      <ion-select-option value="Good">Good</ion-select-option>
+                      <ion-select-option value="Average">Average</ion-select-option>
+                      <ion-select-option value="Bad">Bad</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+         
+                  <ion-button (click)="add()" expand="block">add</ion-button>
+            </div>
+      
+            <div *ngIf="this.open2==1"> 
+              <ion-item lines="none">
+                  <ion-label position="stacked">DevEUI</ion-label>
+                  <ion-input type="text" placeholder="DevEUI" name="DevEUI" [(ngModel)]="data.DevEUI"></ion-input>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-label position="stacked">GPS_Longitude</ion-label>
+                    <ion-input type="number" placeholder="GPS_Longitude" name="GPS_Longitude" [(ngModel)]="data.GPS_Longitude"></ion-input>
+                  </ion-item>
+       
+                <ion-item lines="none">
+                  <ion-label position="stacked">GPS_Laltitude</ion-label>
+                  <ion-input type="number" placeholder="GPS_Laltitude" name="GPS_Laltitude" [(ngModel)]="data.GPS_Laltitude"></ion-input>
+                </ion-item>
+       
+                <ion-item>
+                  <ion-label>Performance</ion-label>
+                  <ion-select placeholder="Select One" [(ngModel)]="data.performance">
+                    <ion-select-option value="Good">Good</ion-select-option>
+                    <ion-select-option value="Average">Average</ion-select-option>
+                    <ion-select-option value="Bad">Bad</ion-select-option>
+                  </ion-select>
+                </ion-item>
+       
+                <ion-button (click)="update()" expand="block">Update</ion-button>
+          </div>
+      
+          <div *ngIf="this.open3==1"> 
+            <ion-item lines="none">
+                <ion-label position="stacked">DevEUI</ion-label>
+                <ion-input type="text" placeholder="DevEUI" name="DevEUI" [(ngModel)]="data.DevEUI"></ion-input>
+              </ion-item>      
+              <ion-button (click)="delete()" expand="block">delete</ion-button>
+        </div>
+
+        <div *ngIf="this.devices==1"> 
+          <div *ngFor="let ha of this.result ">
+              <ion-card>
+                  <ion-card-content>
+                   <p style="color:floralwhite;">DevEUI :{{ha['DevEUI']}}</p> 
+                   <p style="color:floralwhite;">GPS_Laltitude :{{ha['GPS_Laltitude']}}</p>
+                   <p style="color:floralwhite;">GPS_Longitude :{{ha['GPS_Longitude']}}</p>
+                   <p style="color:floralwhite;">Performance :{{ha['performance']}}</p>
+                  </ion-card-content>
+                </ion-card>
+
+          </div>
+           
+      </div>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+      
+
+
+</ion-content>
+
+

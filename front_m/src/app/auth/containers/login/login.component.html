@@ -1,0 +1,51 @@
+<ion-header >
+        <ion-toolbar color="black">
+          <ion-title>Login</ion-title>
+        </ion-toolbar>
+      </ion-header>
+       
+      <ion-content class="login-content" >
+       
+            <ion-row style="background: #373B44;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to top, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            ;height: 100%;"> 
+                    <ion-col  size-sm="10" offset-sm="1" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="4"
+                      offset-xl="4">
+                 
+                      <ion-card style="background-color: rgb(105, 129, 151);margin-top: 20%;">
+                        <ion-card-header>
+                          <ion-card-title class="ion-text-center">Your Account
+                            <img  src="../assets/SAGEMCOM_logo.svg.png">
+                          </ion-card-title>
+                        </ion-card-header>
+                 
+                        <ion-card-content>
+                 
+                          
+                                  <ion-label position="stacked" color="black">Email</ion-label>
+                                  <ion-input type="email" style="background: rgb(227, 237, 240);" placeholder="Email" name="email" [(ngModel)]="credentials.email"></ion-input>
+                          
+                       
+                              
+                                  <ion-label position="stacked">Password</ion-label>
+                                  <ion-input type="password" style="background: rgb(227, 237, 240);" placeholder="Password" name="password" [(ngModel)]="credentials.password">
+                                  </ion-input>
+                              
+                       
+                                <ion-button (click)="login()" color="new" expand="block"  >Login</ion-button>
+                                <ion-button expand="block" color="new" routerLink="/register" routerDirection="forward">Register
+                                </ion-button>
+                       
+                              </ion-card-content>
+                      </ion-card>
+                 
+                    </ion-col>
+                  </ion-row>
+       
+      </ion-content>
+    
+    
+    
+    
+    

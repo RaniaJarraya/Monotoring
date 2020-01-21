@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>gateway</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row style="background: #373B44;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to top, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            ;height: 300%;"> 
+                    <ion-col  size-sm="10" offset-sm="1" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="4"
+                      offset-xl="4">
+    <ion-card>
+      <ion-item (click)="addGateway()">
+        Add New Gateway  
+     </ion-item>
+     <ion-item (click)="updateGateway()">
+         Update  Gateway  
+     </ion-item>
+     <ion-item (click)="deleteGateway()">
+         Delete  Gateway  
+     </ion-item>
+     <ion-item (click)="getGateways()">
+         Get ALL  Gateways
+     </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+          <div *ngIf="this.open1==1"> 
+              <ion-item lines="none">
+                  <ion-label position="stacked">GTW_ID</ion-label>
+                  <ion-input type="text" placeholder="GTW_ID" name="GTW_ID" [(ngModel)]="data.GTW_ID"></ion-input>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-label position="stacked">GTW_Longitude</ion-label>
+                    <ion-input type="number" placeholder="GTW_Longitude" name="GTW_Longitude" [(ngModel)]="data.GTW_Longitude"></ion-input>
+                  </ion-item>
+       
+                <ion-item lines="none">
+                  <ion-label position="stacked">GTW_Laltitude</ion-label>
+                  <ion-input type="number" placeholder="GTW_Laltitude" name="GTW_Laltitude" [(ngModel)]="data.GTW_Laltitude"></ion-input>
+                </ion-item>
+       
+                <ion-button (click)="add()" expand="block">add</ion-button>
+          </div>
+    
+          <div *ngIf="this.open2==1"> 
+            <ion-item lines="none">
+              <ion-label position="stacked">GTW_ID</ion-label>
+              <ion-input type="text" placeholder="DevEUI" name="GTW_ID" [(ngModel)]="data.GTW_ID"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+                <ion-label position="stacked">GTW_Longitude</ion-label>
+                <ion-input type="number" placeholder="GTW_Longitude" name="GTW_Longitude" [(ngModel)]="data.GTW_Longitude"></ion-input>
+              </ion-item>
+   
+            <ion-item lines="none">
+              <ion-label position="stacked">GTW_Laltitude</ion-label>
+              <ion-input type="number" placeholder="GTW_Laltitude" name="GTW_Laltitude" [(ngModel)]="data.GTW_Laltitude"></ion-input>
+            </ion-item>
+              <ion-button (click)="update()" expand="block">Update</ion-button>
+        </div>
+    
+        <div *ngIf="this.open3==1"> 
+          <ion-item lines="none">
+              <ion-label position="stacked">GTW_ID</ion-label>
+              <ion-input type="text" placeholder="GTW_ID" name="GTW_ID" [(ngModel)]="data.GTW_ID"></ion-input>
+            </ion-item>      
+            <ion-button (click)="delete()" expand="block">delete</ion-button>
+      </div>
+
+      <div *ngIf="this.gateways==1"> 
+          <div *ngFor="let ha of this.result">
+              <ion-card>
+                  <ion-card-content>
+                   <p style="color:floralwhite;">GTW_ID :{{ha['GTW_ID']}}</p> 
+                   <p style="color:floralwhite;">GTW_Longitude :{{ha['GTW_Longitude']}}</p>
+                   <p style="color:floralwhite;">GTW_Laltitude :{{ha['GTW_Laltitude']}}</p>
+                  </ion-card-content>
+                </ion-card>
+
+          </div>
+           
+      </div>
+      
+
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+</ion-row>
+
+</ion-content>

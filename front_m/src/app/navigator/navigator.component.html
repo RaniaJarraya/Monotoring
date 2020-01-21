@@ -1,0 +1,20 @@
+<div id="map-navigator" style="width: max-content;">
+    
+       <!-- <ion-checkbox color="danger"  [class.inactive]="!markersOn"
+        [class.active]="markersOn"
+        (click)="toggleMarkers(!markersOn)"></ion-checkbox>Simulate divice -->
+     <!-- <ion-button 
+              disableRipple
+              [class.inactive]="!markersOn"
+              [class.active]="markersOn"
+              (click)="toggleMarkers(!markersOn)">
+              Simulate Device 
+              <ion-icon name="pin"></ion-icon>
+      </ion-button>-->
+      <ion-toggle id="gateway3" color="danger" [(ngModel)]="papperoni3" (ionChange)=change3()></ion-toggle>Simulate device
+      <br>
+      <ion-toggle id="gateway1" [(ngModel)]="papperoni" (ionChange)=change()></ion-toggle>Show devices 
+      <ion-toggle id="gateway2" color="warning"  [(ngModel)]="papperoni2" (ionChange)=change2()></ion-toggle>Show Gateways 
+   
+
+  </div>

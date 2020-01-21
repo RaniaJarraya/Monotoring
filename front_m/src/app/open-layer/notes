@@ -1,0 +1,117 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { Component, AfterViewInit } from '@angular/core';
+import * as L from 'leaflet';
+import { AuthService } from '../auth/services/auth.service';
+import Overlay from 'ol/Overlay';
+
+@Component({
+  selector: 'app-open-layer',
+  templateUrl: './open-layer.component.html',
+  styleUrls: ['./open-layer.component.scss'],
+})
+export class OpenLayerComponent implements AfterViewInit {
+	private map;
+	result=[]
+  constructor(private authService: AuthService ) { }
+
+  ngAfterViewInit(): void {
+	
+	  //this.initMap
+	  // Déclaration de la carte avec les coordonnées du centre et le niveau de zoom.
+		this.map = L.map('map').setView([50.6311634, 3.0599573], 12);
+
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		}).addTo(this.map);
+		
+		var circle = L.circle([51.508, -0.11], {
+			color: 'red',
+			fillColor: '#f03',
+			fillOpacity: 0.5,
+			radius: 500
+		}).addTo(this.map);
+		circle.bindPopup("I am a circle.");
+
+		var container = document.getElementById('popup');
+		var content = document.getElementById('popup-content');
+		var closer = document.getElementById('popup-closer');
+
+		var overlay = new Overlay({
+		  element: container,
+		  autoPan: true,
+		  autoPanAnimation: {
+			duration: 250
+		  }
+		});
+
+		closer.onclick = function() {
+		  overlay.setPosition(undefined);
+		  closer.blur();
+		  return false;
+		};
+
+		this.map.on('click', function(evt) {
+			var coordinate = evt.latlng;
+			console.log(coordinate)
+			var hdms = coordinate;
+		  
+			content.innerHTML = '<p>You clicked here:</p><code>' + hdms +
+				'</code>';
+			overlay.setPosition(coordinate);
+		  });
+		
+
+		//var popup = L.popup();
+		//this.map.on('click', this.onMapClick);	
+		//var popup = L.popup().setContent('<p>Hello world!<br />This is a nice popup.</p>');
+	
+		
+	 }
+
+
+  getdev(){
+	const myIcon = L.icon({
+		iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png'
+	  });
+	 
+	 this.authService.getDevices().subscribe(
+		res => {
+			this.result=res;
+			console.log(this.result)
+		  res.forEach(ele => {
+			L.marker([ele['GPS_Laltitude'], ele['GPS_Longitude']], {icon: myIcon}).addTo(this.map);
+		  })
+		},
+		err => { 
+		  console.log(err);
+		  
+		}
+	  );
+
+  }
+ /* 
+  private initMap(): void {
+	this.map = L.map('map', {
+	  center: [ 39.8282, -98.5795 ],
+	  zoom: 3
+	});
+  }*/
+  
+}
